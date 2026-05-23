@@ -1,0 +1,1901 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+@keyframes colorchange {
+	0%,
+	100% {
+		background: mistyrose;
+		border-color: brown;
+	}
+	50% {
+		background: #ffe4ec;
+		border-color: sienna;
+	}
+}
+
+@keyframes cloud-float {
+	0%,
+	100% {
+		transform: translate(0, 0);
+	}
+	33% {
+		transform: translate(4px, -2px);
+	}
+	66% {
+		transform: translate(-3px, 1px);
+	}
+}
+
+@keyframes cloud-float-slow {
+	0%,
+	100% {
+		transform: translate(0, 0) scale(1);
+	}
+	50% {
+		transform: translate(-6px, 2px) scale(1.02);
+	}
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	min-height: 100vh;
+	min-height: 100dvh;
+	background: linear-gradient(180deg, #0d2137 0%, #1a3d5c 40%, #243d52 100%);
+	color: #e8f4fc;
+	font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+	-webkit-text-size-adjust: 100%;
+	overflow-x: hidden;
+}
+
+.page-wrap {
+	max-width: 1040px;
+	width: 100%;
+	margin: 0 auto;
+	padding:
+		clamp(0.75rem, 3vw, 1.25rem)
+		max(clamp(0.5rem, 4vw, 1rem), env(safe-area-inset-right))
+		clamp(1.5rem, 5vw, 2.5rem)
+		max(clamp(0.5rem, 4vw, 1rem), env(safe-area-inset-left));
+}
+
+.site-header {
+	height: 4px;
+	background: linear-gradient(90deg, transparent, #4a9fe8, transparent);
+	opacity: 0.85;
+	margin-bottom: 0.5rem;
+	border-radius: 2px;
+}
+
+.page-wrap header {
+	text-align: center;
+	margin-bottom: 1rem;
+}
+
+.text-color {
+	margin: 0;
+	font-size: clamp(1.25rem, 4vw, 1.75rem);
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: #f0f8ff;
+	text-shadow: 0 0 24px rgba(74, 159, 232, 0.45), 0 2px 0 rgba(13, 33, 55, 0.8);
+}
+
+.page-wrap footer {
+	margin-top: 1.25rem;
+	padding-top: 0.75rem;
+	border-top: 1px solid rgba(74, 159, 232, 0.25);
+	text-align: center;
+	font-size: 0.75rem;
+	letter-spacing: 0.08em;
+	color: rgba(200, 220, 240, 0.55);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.cloud1,
+	.cloud2,
+	.cloud3,
+	.cloud4 {
+		animation: none;
+	}
+
+	.cloud1::after,
+	.cloud2::after,
+	.cloud3::after,
+	.cloud4::after {
+		animation: none;
+	}
+}
+
+/* Scene bundle: landscape + controls (full-screen target) */
+.scene-experience {
+	width: 100%;
+	max-width: 1000px;
+	margin: 0 auto;
+	position: relative;
+}
+
+/* Responsive scene viewport (scales 1000×500 artboard to any screen) */
+.scene-viewport {
+	container-type: inline-size;
+	container-name: scene;
+	width: 100%;
+	max-width: 1000px;
+	margin: 0 auto;
+	aspect-ratio: 1000 / 500;
+	position: relative;
+	overflow: hidden;
+	border-radius: clamp(4px, 1.2vw, 10px);
+	box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+	cursor: pointer;
+}
+
+.field{
+	background: linear-gradient(
+		to bottom,
+		#0cacf7 12%,
+		#c9e7d4 57%,
+		#a4dcb7 65%,
+		#5cc67c 68%,
+		#46f065 71%,
+		#3dd563 74%,
+		#5cc67c 80%,
+		#38be5a 84%,
+		#25894b 100%
+	);
+	width: 1000px;
+	height: 500px;
+	margin: 0;
+	max-width: none;
+	border: 2px solid #1e5a9e;
+	position: absolute;
+	left: 0;
+	top: 0;
+	transform: scale(calc(100cqw / 1000));
+	transform-origin: top left;
+	box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+}
+
+/* Fallback when container queries are unavailable */
+.scene-viewport--js-scale .field {
+	transform: scale(var(--scene-scale, 1));
+}
+
+.block1{
+	width: 180px;
+	height: 160px;
+	background:orange;
+	position:absolute;
+	bottom: 0;
+	left: 120px;
+}
+.window{
+	width: 75px;
+	height: 65px;
+	background:#FFFFFF;
+	position:absolute;
+	bottom: 40px;
+	left: 215px;
+}
+.rama1{
+	width: 34px;
+	height: 31px;
+	background:#319CD4;
+	position:absolute;
+	bottom: 42px;
+	left: 217px;
+}
+.rama2{
+	width: 34px;
+	height: 31px;
+	background:#F6B312;
+	position:absolute;
+	bottom: 42px;
+	left: 253px;
+}
+.rama3{
+	width: 34px;
+	height: 29px;
+	background:#7CB640;
+	position:absolute;
+	bottom: 74px;
+	left: 253px;
+}
+.rama4{
+	width: 34px;
+	height: 29px;
+	background:#E94F24;
+	position:absolute;
+	bottom: 74px;
+	left: 217px;
+}
+.door{
+	width: 50px;
+	height: 90px;
+	background:brown;
+	position:absolute;
+	bottom: 0px;
+	left: 140px;
+}
+.roof{
+	z-index: 2;
+	width: 0px;
+	height: 0px;
+	background:transparent;
+	position: absolute;
+	left:110px;
+	top:150px;
+	border-top: 100px solid transparent;
+	border-right: 100px solid transparent;
+	border-bottom: 100px solid blue;
+	border-left: 100px solid transparent;
+}
+.tube1{
+	width: 25px;
+	height: 50px;
+	background:brown;
+	position:absolute;
+	bottom: 190px;
+	left: 235px;
+	box-shadow: 0px -50px 40px 15px #87AFD3;
+}
+.tube2{
+	width: 35px;
+	height: 8px;
+	background:#923800;
+	position:absolute;
+	bottom: 232px;
+	left: 230px;
+	box-shadow: 0px -80px 25px 30px #87AFD3;
+}
+.smog1{
+	width: 30px;
+	height: 40px;
+	border-radius: 100%;
+	background:#4E5CD3 transparent;
+	position:absolute;
+	bottom: 250px;
+	left: 235px;
+}
+.smog2{
+	width: 25px;
+	height: 35px;
+	border-radius: 100%;
+	background:#4E5CD3 transparent;
+	position:absolute;
+	bottom: 290px;
+	left: 245px;
+}
+.smog3{
+	width: 20px;
+	height: 30px;
+	border-radius: 100%;
+	background:#4E5CD3 transparent;
+	position:absolute;
+	bottom: 328px;
+	left: 245px;
+}
+.ruchka{
+	width: 5px;
+	height: 5px;
+	border-radius: 100%;
+	background:gold;
+	position:absolute;
+	bottom: 38px;
+	left: 180px;
+}
+.cloud1,
+.cloud2,
+.cloud3,
+.cloud4 {
+	position: absolute;
+	border-radius: 50%;
+	pointer-events: none;
+	background: radial-gradient(
+		ellipse 100% 80% at 35% 40%,
+		rgba(255, 255, 255, 0.98) 0%,
+		rgba(255, 255, 255, 0.88) 40%,
+		rgba(230, 244, 255, 0.55) 72%,
+		rgba(200, 230, 255, 0.2) 100%
+	);
+	box-shadow:
+		14px 4px 0 -4px rgba(255, 255, 255, 0.75),
+		-12px 6px 0 -5px rgba(255, 255, 255, 0.7),
+		22px 10px 0 -8px rgba(255, 255, 255, 0.5),
+		0 6px 18px rgba(30, 100, 160, 0.12),
+		inset 4px -4px 12px rgba(255, 255, 255, 0.35);
+	filter: drop-shadow(0 3px 6px rgba(40, 120, 200, 0.18));
+	z-index: 2;
+	animation: cloud-float 22s ease-in-out infinite;
+	will-change: transform;
+}
+
+.cloud1 {
+	width: 72px;
+	height: 38px;
+	bottom: 352px;
+	left: 468px;
+	animation-delay: 0s;
+}
+
+.cloud2 {
+	width: 88px;
+	height: 44px;
+	bottom: 368px;
+	left: 498px;
+	animation-delay: -5s;
+}
+
+.cloud3 {
+	width: 64px;
+	height: 36px;
+	bottom: 358px;
+	left: 452px;
+	animation-delay: -11s;
+}
+
+.cloud4 {
+	width: 58px;
+	height: 32px;
+	bottom: 374px;
+	left: 528px;
+	animation-delay: -8s;
+	opacity: 0.92;
+}
+
+.sun{
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	box-shadow: 0 0 40px 15px #fdf5bf;
+	background: radial-gradient(ellipse at center, #fdf5bf 0%, #fdea59 50%, #ffe30b 59%, #fcf19a 100%);
+	position:absolute;
+	bottom: 365px;
+	left: 535px;
+	z-index: 1;
+}
+.fence1{
+	width: 18px;
+	height: 50px;
+	background:brown;
+	position:absolute;
+	bottom: 0px;
+	left: 307px;
+}
+.fence2{
+	width: 18px;
+	height: 50px;
+	background:brown;
+	position:absolute;
+	bottom: 0px;
+	left: 332px;
+}
+.fence3{
+	width: 18px;
+	height: 50px;
+	background:brown;
+	position:absolute;
+	bottom: 0px;
+	left: 357px;
+}
+.fence4{
+	width: 18px;
+	height: 50px;
+	background:brown;
+	position:absolute;
+	bottom: 0px;
+	left: 382px;
+}
+.fence5{
+	width: 18px;
+	height: 50px;
+	background:brown;
+	position:absolute;
+	bottom: 0px;
+	left: 407px;
+}
+.fence6{
+	width: 18px;
+	height: 50px;
+	background:brown;
+	position:absolute;
+	bottom: 0px;
+	left: 432px;
+}
+.fence7{
+	width: 18px;
+	height: 50px;
+	background:brown;
+	position:absolute;
+	bottom: 0px;
+	left: 457px;
+}
+.triangle-up1{
+	width: 0;
+	height: 0;
+	border-bottom: 18px solid brown;
+	border-left: 9px solid transparent;
+	border-right: 9px solid transparent;
+	position:absolute;
+	bottom: 50px;
+	left: 307px;
+}
+.triangle-up2{
+	width: 0;
+	height: 0;
+	border-bottom: 18px solid brown;
+	border-left: 9px solid transparent;
+	border-right: 9px solid transparent;
+	position:absolute;
+	bottom: 50px;
+	left: 332px;
+}
+.triangle-up3{
+	width: 0;
+	height: 0;
+	border-bottom: 18px solid brown;
+	border-left: 9px solid transparent;
+	border-right: 9px solid transparent;
+	position:absolute;
+	bottom: 50px;
+	left: 357px;
+}
+.triangle-up4{
+	width: 0;
+	height: 0;
+	border-bottom: 18px solid brown;
+	border-left: 9px solid transparent;
+	border-right: 9px solid transparent;
+	position:absolute;
+	bottom: 50px;
+	left: 382px;
+}
+.triangle-up5{
+	width: 0;
+	height: 0;
+	border-bottom: 18px solid brown;
+	border-left: 9px solid transparent;
+	border-right: 9px solid transparent;
+	position:absolute;
+	bottom: 50px;
+	left: 407px;
+}
+.triangle-up6{
+	width: 0;
+	height: 0;
+	border-bottom: 18px solid brown;
+	border-left: 9px solid transparent;
+	border-right: 9px solid transparent;
+	position:absolute;
+	bottom: 50px;
+	left: 432px;
+}
+.triangle-up7{
+	width: 0;
+	height: 0;
+	border-bottom: 18px solid brown;
+	border-left: 9px solid transparent;
+	border-right: 9px solid transparent;
+	position:absolute;
+	bottom: 50px;
+	left: 457px;
+}
+.fences1{
+	width: 680px;
+	height: 12px;
+	background:brown;
+	position:absolute;
+	bottom: 30px;
+	left: 300px;
+}
+.fences2{
+	width: 680px;
+	height: 12px;
+	background:brown;
+	position:absolute;
+	bottom: 7px;
+	left: 300px;
+}
+.nail1{
+	width: 3px;
+	height: 3px;
+	border-radius: 100%;
+	background:gold;
+	position:absolute;
+	bottom: 35px;
+	left: 310px;
+}
+.nail2{
+	width: 3px;
+	height: 3px;
+	border-radius: 100%;
+	background:gold;
+	position:absolute;
+	bottom: 35px;
+	left: 318px;
+}
+.nail3{
+	width: 3px;
+	height: 3px;
+	border-radius: 100%;
+	background:gold;
+	position:absolute;
+	bottom: 35px;
+	left: 336px;
+}
+.nail4{
+	width: 3px;
+	height: 3px;
+	border-radius: 100%;
+	background:gold;
+	position:absolute;
+	bottom: 35px;
+	left: 344px;
+}
+.nail5{
+	width: 3px;
+	height: 3px;
+	border-radius: 100%;
+	background:gold;
+	position:absolute;
+	bottom: 35px;
+	left: 360px;
+}
+.nail6{
+	width: 3px;
+	height: 3px;
+	border-radius: 100%;
+	background:gold;
+	position:absolute;
+	bottom: 35px;
+	left: 368px;
+}
+.nail7{
+	width: 3px;
+	height: 3px;
+	border-radius: 100%;
+	background:gold;
+	position:absolute;
+	bottom: 35px;
+	left: 385px;
+}
+.nail8{
+	width: 3px;
+	height: 3px;
+	border-radius: 100%;
+	background:gold;
+	position:absolute;
+	bottom: 35px;
+	left: 393px;
+}
+.nail9{
+	width: 3px;
+	height: 3px;
+	border-radius: 100%;
+	background:gold;
+	position:absolute;
+	bottom: 35px;
+	left: 410px;
+}
+.nail10{
+	width: 3px;
+	height: 3px;
+	border-radius: 100%;
+	background:gold;
+	position:absolute;
+	bottom: 35px;
+	left: 418px;
+}
+.nail11{
+	width: 3px;
+	height: 3px;
+	border-radius: 100%;
+	background:gold;
+	position:absolute;
+	bottom: 35px;
+	left: 436px;
+}
+.nail12{
+	width: 3px;
+	height: 3px;
+	border-radius: 100%;
+	background:gold;
+	position:absolute;
+	bottom: 35px;
+	left: 444px;
+}
+.nail13{
+	width: 3px;
+	height: 3px;
+	border-radius: 100%;
+	background:gold;
+	position:absolute;
+	bottom: 35px;
+	left: 460px;
+}
+.nail14{
+	width: 3px;
+	height: 3px;
+	border-radius: 100%;
+	background:gold;
+	position:absolute;
+	bottom: 35px;
+	left: 468px;
+}
+.naild1{
+	width: 3px;
+	height: 3px;
+	border-radius: 100%;
+	background:gold;
+	position:absolute;
+	bottom: 11px;
+	left: 310px;
+}
+.naild2{
+	width: 3px;
+	height: 3px;
+	border-radius: 100%;
+	background:gold;
+	position:absolute;
+	bottom: 11px;
+	left: 318px;
+}
+.naild3{
+	width: 3px;
+	height: 3px;
+	border-radius: 100%;
+	background:gold;
+	position:absolute;
+	bottom: 11px;
+	left: 336px;
+}
+.naild4{
+	width: 3px;
+	height: 3px;
+	border-radius: 100%;
+	background:gold;
+	position:absolute;
+	bottom: 11px;
+	left: 344px;
+}
+.naild5{
+	width: 3px;
+	height: 3px;
+	border-radius: 100%;
+	background:gold;
+	position:absolute;
+	bottom: 11px;
+	left: 360px;
+}
+.naild6{
+	width: 3px;
+	height: 3px;
+	border-radius: 100%;
+	background:gold;
+	position:absolute;
+	bottom: 11px;
+	left: 368px;
+}
+.naild7{
+	width: 3px;
+	height: 3px;
+	border-radius: 100%;
+	background:gold;
+	position:absolute;
+	bottom: 11px;
+	left: 385px;
+}
+.naild8{
+	width: 3px;
+	height: 3px;
+	border-radius: 100%;
+	background:gold;
+	position:absolute;
+	bottom: 11px;
+	left: 393px;
+}
+.naild9{
+	width: 3px;
+	height: 3px;
+	border-radius: 100%;
+	background:gold;
+	position:absolute;
+	bottom: 11px;
+	left: 410px;
+}
+.naild10{
+	width: 3px;
+	height: 3px;
+	border-radius: 100%;
+	background:gold;
+	position:absolute;
+	bottom: 11px;
+	left: 418px;
+}
+.naild11{
+	width: 3px;
+	height: 3px;
+	border-radius: 100%;
+	background:gold;
+	position:absolute;
+	bottom: 11px;
+	left: 436px;
+}
+.naild12{
+	width: 3px;
+	height: 3px;
+	border-radius: 100%;
+	background:gold;
+	position:absolute;
+	bottom: 11px;
+	left: 444px;
+}
+.naild13{
+	width: 3px;
+	height: 3px;
+	border-radius: 100%;
+	background:gold;
+	position:absolute;
+	bottom: 11px;
+	left: 460px;
+}
+.naild14{
+	width: 3px;
+	height: 3px;
+	border-radius: 100%;
+	background:gold;
+	position:absolute;
+	bottom: 11px;
+	left: 468px;
+}
+.radius{
+	z-index: 3;
+	width: 80px;
+	height: 30px;
+	border: 2px solid brown;
+	border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+	background: white;
+	position: absolute;
+	bottom: 160px;
+	left: 168px;
+	overflow: hidden; /* Обрезает углы картинки кота по дуге окна */
+}
+/* Pixel cat (46×28 px, 2px per cell) */
+.pixel-cat {
+	position: absolute;
+	bottom: 0;
+	left: 17px;
+	width: 46px;
+	height: 28px;
+	z-index: 3;
+	image-rendering: pixelated;
+	pointer-events: none;
+}
+
+.pixel-cat__dot {
+	position: absolute;
+	width: 2px;
+	height: 2px;
+	display: block;
+}
+
+.bort1{
+	z-index: 4;
+	width: 46px;
+	height: 4px;
+	background: brown;
+	position: absolute;
+	bottom: 0px;
+	left: 17px; /* Центрировано */
+}
+.bort2{
+	z-index: 4;
+	width: 2px;
+	height: 28px;
+	background: brown;
+	position: absolute;
+	bottom: 0px;
+	left: 17px; /* Центрировано */
+}
+.bort3{
+	z-index: 4;
+	width: 2px;
+	height: 28px;
+	background: brown;
+	position: absolute;
+	bottom: 0px;
+	left: 61px; /* Центрировано: 17 + 46 - 2 = 61px */
+}
+.bird1{
+    z-index: 2;
+    width: 25px;
+	height: 10px;
+	border-radius: 50%;
+	background: #0662DF;
+	position:absolute;
+	bottom: 250px;
+	left: 400px;
+	transform: rotate(15deg)
+}
+.bird2{
+	width: 15px;
+	height: 11px;
+	border-radius: 50%;
+	background: #0662DF;
+	position:absolute;
+	bottom: 258px;
+	left: 394px;
+	transform: rotate(-15deg)
+}
+.bird3{
+	width: 8px;
+	height: 7px;
+	border-radius: 50%;
+	background: white;
+	position:absolute;
+	bottom: 260px;
+	left: 395px;
+}
+.bird4{
+	width: 4px;
+	height: 5px;
+	border-radius: 50%;
+	background: black;
+	position:absolute;
+	bottom: 261px;
+	left: 396px;
+}
+.bird5{
+	width: 0;
+	height: 0;
+	border-top: 2.5px solid transparent;
+	border-right: 5px solid red;
+	border-bottom: 2.5px solid transparent;
+	position:absolute;
+	bottom: 258px;
+	left: 390px;
+	transform: rotate(-21deg)
+}
+.bird6{
+	z-index: 3;
+	width: 0;
+	height: 0;
+	border-bottom: 5px solid red;
+	border-left: 2px solid transparent;
+	border-right: 2px solid transparent;
+	position:absolute;
+	bottom: 246px;
+	left: 412px;
+}
+.bird7{
+	z-index: 1;
+	width: 0;
+	height: 0;
+	border-bottom: 5px solid red;
+	border-left: 2px solid transparent;
+	border-right: 2px solid transparent;
+	position:absolute;
+	bottom: 248px;
+	left: 407px;
+}
+.bird8{
+	z-index: 4;
+	width: 0;
+	height: 0;
+	border-bottom: 14px solid #69B4FF;
+	border-left: 6px solid transparent;
+	border-right: 2px solid transparent;
+	position:absolute;
+	bottom: 253px;
+	left: 417px;
+	transform: rotate(45deg)
+}
+.bird9{
+	width: 0;
+	height: 0;
+	border-bottom: 14px solid #69B4FF;
+	border-left: 6px solid transparent;
+	border-right: 2px solid transparent;
+	position:absolute;
+	bottom: 257px;
+	left: 411px;
+}
+.bird10{
+	width: 0;
+	height: 0;
+	border-top: 7px solid transparent;
+	border-right: 10px solid #69B4FF;
+	border-bottom: 7px solid transparent;
+	position:absolute;
+	bottom: 246px;
+	left: 420px;
+	transform: rotate(-9deg)
+}
+.birds-wrap{
+	position: absolute;
+	bottom: -181px;
+	left: 30px;
+}
+/* Ёлка была убрана */
+
+/* ==========================================================================
+   ДИНАМИЧЕСКИЙ РЕЖИМ (ПЕРЕМЕННЫЕ, ТЕМЫ И ИНТЕРАКТИВНЫЕ СТИЛИ)
+   ========================================================================== */
+
+:root {
+	--sky-top: #0cacf7;
+	--sky-bottom: #c9e7d4;
+	--grass-stop1: #a4dcb7;
+	--grass-stop2: #5cc67c;
+	--grass-stop3: #46f065;
+	--grass-stop4: #3dd563;
+	--grass-stop5: #5cc67c;
+	--grass-stop6: #38be5a;
+	--grass-stop7: #25894b;
+
+	--house-bg: orange;
+	--win-bg: #FFFFFF;
+	--win-rama1: #319CD4;
+	--win-rama2: #F6B312;
+	--win-rama3: #7CB640;
+	--win-rama4: #E94F24;
+	--win-glow: transparent;
+
+	--sun-bg: radial-gradient(ellipse at center, #fdf5bf 0%, #fdea59 50%, #ffe30b 59%, #fcf19a 100%);
+	--sun-shadow: 0 0 40px 15px #fdf5bf;
+	--sun-transform: scale(1);
+	--sun-opacity: 1;
+
+	--door-bg: brown;
+	--fence-bg: brown;
+	--roof-bg: blue;
+	--chimney-bg: brown;
+	--chimney-cap-bg: #923800;
+	
+	--cloud-opacity: 1;
+	--cloud-filter: drop-shadow(0 3px 6px rgba(40, 120, 200, 0.18));
+	--bird-brightness: 1;
+
+	--cloud-shade-color: rgba(24, 58, 38, 0.34);
+	--cloud-shade-opacity: 0.82;
+}
+
+/* ТЕМЫ ВРЕМЕНИ СУТОК */
+
+/* Закат */
+.time-sunset {
+	--sky-top: #df4b32;
+	--sky-bottom: #fdc38a;
+	--grass-stop1: #9b9a71;
+	--grass-stop2: #658c5a;
+	--grass-stop3: #509e4d;
+	--grass-stop4: #438f41;
+	--grass-stop5: #658c5a;
+	--grass-stop6: #3f7b3b;
+	--grass-stop7: #2a5223;
+
+	--house-bg: #d46f00;
+	--win-bg: #fff0d0;
+	--win-rama1: #2a7ca7;
+	--win-rama2: #cf960e;
+	--win-rama3: #659333;
+	--win-rama4: #c0401d;
+
+	--sun-bg: radial-gradient(ellipse at center, #ffec8a 0%, #ff9500 50%, #ff5b00 70%, #d42200 100%);
+	--sun-shadow: 0 0 50px 20px rgba(255, 100, 0, 0.65), 0 0 100px 30px rgba(255, 50, 0, 0.3);
+	--sun-transform: translateY(60px) scale(1.15);
+
+	--door-bg: #6e2713;
+	--fence-bg: #6e2713;
+	--roof-bg: #1c1d73;
+	--chimney-bg: #6e2713;
+	--chimney-cap-bg: #5f2503;
+	
+	--cloud-filter: drop-shadow(0 3px 6px rgba(180, 50, 20, 0.15));
+	--bird-brightness: 0.85;
+
+	--cloud-shade-color: rgba(42, 20, 10, 0.38);
+	--cloud-shade-opacity: 0.88;
+}
+
+/* Ночь */
+.time-night {
+	--sky-top: #050b18;
+	--sky-bottom: #121e35;
+	--grass-stop1: #13241b;
+	--grass-stop2: #0e1c15;
+	--grass-stop3: #0a150f;
+	--grass-stop4: #07100b;
+	--grass-stop5: #0e1c15;
+	--grass-stop6: #07100b;
+	--grass-stop7: #030805;
+
+	--house-bg: #3d2000;
+	--win-bg: #1c2635;
+	--win-rama1: #103254;
+	--win-rama2: #523b0b;
+	--win-rama3: #2d3f18;
+	--win-rama4: #541d0e;
+	--win-glow: none;
+
+	--sun-bg: radial-gradient(ellipse at center, #fcfdff 0%, #e1e5eb 60%, #c4cbd4 100%);
+	--sun-shadow: 0 0 35px 12px rgba(230, 235, 245, 0.45), inset -8px 8px 15px rgba(255, 255, 255, 0.15);
+	--sun-transform: scale(0.9);
+
+	--door-bg: #40180d;
+	--fence-bg: #38150b;
+	--roof-bg: #090c24;
+	--chimney-bg: #38150b;
+	--chimney-cap-bg: #301302;
+	
+	--cloud-opacity: 0.25;
+	--cloud-filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.4));
+	--bird-brightness: 0.3;
+
+	--cloud-shade-color: rgba(8, 18, 36, 0.22);
+	--cloud-shade-opacity: 0.2;
+}
+
+.time-night.light-on {
+	--win-bg: #fff8bc;
+	--win-rama1: #4baee3;
+	--win-rama2: #fcc030;
+	--win-rama3: #92d44e;
+	--win-rama4: #f76840;
+	--win-glow: 0 0 35px rgba(255, 220, 80, 0.65), 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+/* Аврора (Полярное сияние) */
+.time-aurora {
+	--sky-top: #030612;
+	--sky-bottom: #091324;
+	--grass-stop1: #0f211c;
+	--grass-stop2: #0b1a16;
+	--grass-stop3: #081410;
+	--grass-stop4: #050d0a;
+	--grass-stop5: #0b1a16;
+	--grass-stop6: #050d0a;
+	--grass-stop7: #020705;
+
+	--house-bg: #2b1600;
+	--win-bg: #141c29;
+	--win-rama1: #0d2946;
+	--win-rama2: #433108;
+	--win-rama3: #243413;
+	--win-rama4: #46180a;
+	--win-glow: none;
+
+	--sun-bg: radial-gradient(ellipse at center, #e2faec 0%, #b2e4c8 60%, #87be9f 100%);
+	--sun-shadow: 0 0 30px 10px rgba(178, 228, 200, 0.35);
+	--sun-transform: scale(0.85);
+
+	--door-bg: #30120b;
+	--fence-bg: #2b1109;
+	--roof-bg: #07091c;
+	--chimney-bg: #2b1109;
+	--chimney-cap-bg: #220e02;
+	
+	--cloud-opacity: 0.15;
+	--cloud-filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.5));
+	--bird-brightness: 0.25;
+
+	--cloud-shade-color: rgba(10, 26, 22, 0.18);
+	--cloud-shade-opacity: 0.15;
+}
+
+.time-aurora.light-on {
+	--win-bg: #fff8bc;
+	--win-rama1: #4baee3;
+	--win-rama2: #fcc030;
+	--win-rama3: #92d44e;
+	--win-rama4: #f76840;
+	--win-glow: 0 0 35px rgba(255, 220, 80, 0.6), 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+/* ПЛАВНЫЕ ТРАНЗИШЕНЫ ДЛЯ ВСЕХ ЭЛЕМЕНТОВ РИСУНКА */
+.field, .block1, .window, .rama1, .rama2, .rama3, .rama4, .door, .roof, .tube1, .tube2, .sun, 
+.fence1, .fence2, .fence3, .fence4, .fence5, .fence6, .fence7, .fences1, .fences2,
+.triangle-up1, .triangle-up2, .triangle-up3, .triangle-up4, .triangle-up5, .triangle-up6, .triangle-up7,
+.cloud1, .cloud2, .cloud3, .cloud4, .birds-wrap, .pixel-cat, .radius,
+.fence-post-dyn, .fence-tip-dyn, .fence-nail-dyn {
+	transition: background 1.5s ease-in-out, 
+	            border-color 1.5s ease-in-out, 
+	            border-bottom-color 1.5s ease-in-out, 
+	            box-shadow 1.5s ease-in-out, 
+	            filter 1.5s ease-in-out, 
+	            opacity 1.5s ease-in-out, 
+	            transform 1.5s ease-in-out;
+}
+
+/* ПРИМЕНЕНИЕ ПЕРЕМЕННЫХ К ЭЛЕМЕНТАМ */
+.field {
+	background: linear-gradient(
+		to bottom,
+		var(--sky-top) 12%,
+		var(--sky-bottom) 57%,
+		var(--grass-stop1) 65%,
+		var(--grass-stop2) 68%,
+		var(--grass-stop3) 71%,
+		var(--grass-stop4) 74%,
+		var(--grass-stop5) 80%,
+		var(--grass-stop6) 84%,
+		var(--grass-stop7) 100%
+	) !important;
+}
+
+.block1 {
+	background: var(--house-bg) !important;
+}
+
+.window {
+	background: var(--win-bg) !important;
+	box-shadow: var(--win-glow) !important;
+	cursor: pointer; /* Сделать окно кликабельным */
+}
+
+.rama1 { background: var(--win-rama1) !important; }
+.rama2 { background: var(--win-rama2) !important; }
+.rama3 { background: var(--win-rama3) !important; }
+.rama4 { background: var(--win-rama4) !important; }
+
+.door {
+	background: var(--door-bg) !important;
+}
+
+.roof {
+	border-bottom-color: var(--roof-bg) !important;
+}
+
+.tube1 {
+	background: var(--chimney-bg) !important;
+	box-shadow: 0px -50px 40px 15px rgba(74, 159, 232, 0.15) !important;
+}
+
+.tube2 {
+	background: var(--chimney-cap-bg) !important;
+	box-shadow: none !important;
+}
+
+.sun {
+	background: var(--sun-bg) !important;
+	box-shadow: var(--sun-shadow) !important;
+	transform: var(--sun-transform) !important;
+	animation: sun-glow 8s infinite ease-in-out;
+}
+
+/* Ветровая анимация для ёлки убрана */
+
+/* Забор */
+.fence1, .fence2, .fence3, .fence4, .fence5, .fence6, .fence7, .fences1, .fences2 {
+	background: var(--fence-bg) !important;
+}
+
+.triangle-up1, .triangle-up2, .triangle-up3, .triangle-up4, .triangle-up5, .triangle-up6, .triangle-up7,
+.fence-tip-dyn, .fence-gate-door-tip {
+	border-bottom-color: var(--fence-bg) !important;
+}
+
+@keyframes fence-sway {
+	0%, 100% { transform: rotate(0deg); }
+	35% { transform: rotate(2deg); }
+	70% { transform: rotate(-1.4deg); }
+}
+
+.weather-wind .fence-sway-target {
+	transform-origin: bottom center;
+	animation: fence-sway 2.6s ease-in-out infinite;
+}
+
+.weather-snow .fences1,
+.weather-snow .fences2,
+.weather-snow .fence1, .weather-snow .fence2, .weather-snow .fence3,
+.weather-snow .fence4, .weather-snow .fence5, .weather-snow .fence6, .weather-snow .fence7,
+.weather-snow .fence-post-dyn, .weather-snow .fence-tip-dyn,
+.weather-snow .triangle-up1, .weather-snow .triangle-up2, .weather-snow .triangle-up3,
+.weather-snow .triangle-up4, .weather-snow .triangle-up5, .weather-snow .triangle-up6, .weather-snow .triangle-up7 {
+	box-shadow: inset 0 5px 0 rgba(255, 255, 255, 0.65);
+}
+
+.weather-rain .fences1,
+.weather-rain .fences2,
+.weather-rain .fence-post-dyn,
+.weather-rain .fence1, .weather-rain .fence2, .weather-rain .fence3,
+.weather-rain .fence4, .weather-rain .fence5, .weather-rain .fence6, .weather-rain .fence7 {
+	filter: brightness(0.82) saturate(0.85);
+}
+
+/* Облака */
+.cloud1, .cloud2, .cloud3, .cloud4 {
+	opacity: var(--cloud-opacity) !important;
+	filter: var(--cloud-filter) !important;
+}
+
+/* Тень от солнца сквозь облака — на траве, движется вместе с облаками */
+.cloud1::after,
+.cloud2::after,
+.cloud3::after,
+.cloud4::after {
+	content: "";
+	position: absolute;
+	pointer-events: none;
+	top: calc(100% + 208px);
+	border-radius: 50%;
+	background: radial-gradient(
+		ellipse 100% 100% at 54% 42%,
+		var(--cloud-shade-color) 0%,
+		transparent 70%
+	);
+	filter: blur(8px);
+	opacity: var(--cloud-shade-opacity);
+	transition: opacity 1.5s ease-in-out;
+}
+
+.cloud1::after {
+	left: -24%;
+	width: 155%;
+	height: 54px;
+}
+
+.cloud2::after {
+	left: -26%;
+	width: 168%;
+	height: 62px;
+}
+
+.cloud3::after {
+	left: -22%;
+	width: 148%;
+	height: 50px;
+}
+
+.cloud4::after {
+	left: -25%;
+	width: 152%;
+	height: 48px;
+}
+
+.weather-rain .cloud1::after,
+.weather-rain .cloud2::after,
+.weather-rain .cloud3::after,
+.weather-rain .cloud4::after {
+	opacity: calc(var(--cloud-shade-opacity) * 1.15);
+}
+
+.weather-snow .cloud1::after,
+.weather-snow .cloud2::after,
+.weather-snow .cloud3::after,
+.weather-snow .cloud4::after {
+	opacity: calc(var(--cloud-shade-opacity) * 0.65);
+	filter: blur(10px);
+}
+
+.weather-wind .cloud1 { animation-duration: 9s !important; }
+.weather-wind .cloud2 { animation-duration: 11s !important; }
+.weather-wind .cloud3 { animation-duration: 8s !important; }
+.weather-wind .cloud4 { animation-duration: 7s !important; }
+
+/* Птица на заборе */
+.birds-wrap {
+	filter: brightness(var(--bird-brightness, 1));
+}
+
+.bird2 {
+	animation: head-tilt 12s infinite ease-in-out;
+	transform-origin: center right;
+}
+
+.bird8 {
+	animation: wing-flap-left 2s infinite ease-in-out;
+	transform-origin: left bottom;
+}
+
+.bird9 {
+	animation: wing-flap-right 2s infinite ease-in-out;
+	transform-origin: right bottom;
+}
+
+/* Усиление взмахов при ветре */
+.weather-wind .bird8 {
+	animation-duration: 0.6s !important;
+}
+.weather-wind .bird9 {
+	animation-duration: 0.6s !important;
+}
+
+/* Pixel cat — day / night / lit window */
+.time-night .pixel-cat,
+.time-aurora .pixel-cat {
+	filter: brightness(0.22) saturate(0.55);
+}
+
+.time-night.light-on .pixel-cat,
+.time-aurora.light-on .pixel-cat {
+	filter: brightness(0.92) saturate(1.08);
+}
+
+/* Дымовой эффект */
+.smog1, .smog2, .smog3 {
+	background: rgba(220, 230, 245, 0.45) !important;
+	filter: blur(4px) !important;
+	animation: smoke-rise 7s infinite linear !important;
+}
+
+.smog1 { animation-delay: 0s !important; }
+.smog2 { animation-delay: 2.3s !important; }
+.smog3 { animation-delay: 4.6s !important; }
+
+/* НОВЫЕ АНИМАЦИИ */
+
+@keyframes smoke-rise {
+	0% {
+		transform: translate(0, 0) scale(0.8);
+		opacity: 0;
+	}
+	15% {
+		opacity: 0.6;
+	}
+	80% {
+		opacity: 0.15;
+	}
+	100% {
+		transform: translate(-50px, -130px) scale(2.6);
+		opacity: 0;
+		filter: blur(8px);
+	}
+}
+
+@keyframes wing-flap-left {
+	0%, 100% { transform: rotate(45deg); }
+	50% { transform: rotate(15deg); }
+}
+
+@keyframes wing-flap-right {
+	0%, 100% { transform: rotate(0deg); }
+	50% { transform: rotate(-30deg); }
+}
+
+@keyframes head-tilt {
+	0%, 100% { transform: rotate(-15deg); }
+	30%, 70% { transform: rotate(-15deg); }
+	40%, 60% { transform: rotate(10deg); }
+}
+
+@keyframes stars-twinkle {
+	0%, 100% { opacity: 0.25; }
+	50% { opacity: 1; }
+}
+
+@keyframes aurora-glow {
+	0%, 100% {
+		opacity: 0.2;
+		transform: scaleY(1);
+	}
+	50% {
+		opacity: 0.55;
+		transform: scaleY(1.15) translateY(-5px);
+	}
+}
+
+@keyframes sun-glow {
+	0%, 100% { transform: var(--sun-transform) scale(1); }
+	50% { transform: var(--sun-transform) scale(1.04); }
+}
+
+/* Анимация tree-sway убрана */
+
+/* ПОГОДНЫЕ И АТМОСФЕРНЫЕ СЛОИ */
+
+.weather-container, .stars-container, .aurora-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+	overflow: hidden;
+}
+
+.stars-container {
+	z-index: 1;
+}
+
+.aurora-overlay {
+	z-index: 1;
+	opacity: 0;
+	background: linear-gradient(180deg, 
+		rgba(46, 204, 113, 0.25) 0%, 
+		rgba(52, 152, 219, 0.1) 40%, 
+		transparent 80%
+	);
+	transition: opacity 2s ease-in-out;
+}
+
+.time-aurora .aurora-overlay {
+	opacity: 1;
+	animation: aurora-glow 14s infinite ease-in-out alternate;
+}
+
+/* Звезды */
+.star {
+	position: absolute;
+	background-color: #ffffff;
+	border-radius: 50%;
+	animation: stars-twinkle var(--twinkle-dur, 3s) infinite ease-in-out;
+}
+
+/* Дождь */
+.rain-drop {
+	position: absolute;
+	width: 1px;
+	height: 16px;
+	background: linear-gradient(transparent, rgba(174, 219, 255, 0.65));
+	animation: fall-rain var(--fall-dur, 0.9s) linear infinite;
+}
+
+@keyframes fall-rain {
+	0% {
+		transform: translateY(-20px) translateX(0) rotate(15deg);
+	}
+	100% {
+		transform: translateY(520px) translateX(-140px) rotate(15deg);
+	}
+}
+
+/* Снег */
+.snowflake {
+	position: absolute;
+	background: #ffffff;
+	border-radius: 50%;
+	opacity: 0.85;
+	animation: fall-snow var(--fall-dur, 5s) linear infinite;
+}
+
+@keyframes fall-snow {
+	0% {
+		transform: translate(0, -10px) rotate(0deg);
+	}
+	50% {
+		transform: translate(15px, 250px) rotate(180deg);
+	}
+	100% {
+		transform: translate(0, 520px) rotate(360deg);
+	}
+}
+
+/* Силуэты птиц на заднем плане (для атмосферы) */
+.sky-bird {
+	position: absolute;
+	width: 14px;
+	height: 6px;
+	background: transparent;
+	border-top: 1.5px solid rgba(0, 50, 100, 0.4);
+	border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+	z-index: 1;
+	transform-origin: center;
+	animation: fly-across var(--fly-dur, 15s) linear infinite;
+}
+
+.time-night .sky-bird, .time-aurora .sky-bird {
+	border-top-color: rgba(255, 255, 255, 0.15);
+}
+
+@keyframes fly-across {
+	0% {
+		left: 1020px;
+		top: var(--bird-top, 50px);
+		transform: scale(0.6) rotate(5deg);
+	}
+	50% {
+		transform: scale(0.6) rotate(-5deg) translateY(-10px);
+	}
+	100% {
+		left: -40px;
+		top: calc(var(--bird-top, 50px) - 20px);
+		transform: scale(0.6) rotate(5deg);
+	}
+}
+
+/* ПАНЕЛЬ УПРАВЛЕНИЯ (GLASSMORPHISM) */
+.control-panel {
+	width: 100%;
+	max-width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 2rem;
+	background: rgba(20, 35, 55, 0.5);
+	backdrop-filter: blur(16px);
+	-webkit-backdrop-filter: blur(16px);
+	border: 1px solid rgba(74, 159, 232, 0.25);
+	border-radius: 16px;
+	padding: 1.5rem;
+	box-shadow: 0 12px 36px rgba(0, 0, 0, 0.3), 0 0 100px rgba(74, 159, 232, 0.05) inset;
+}
+
+.panel-title {
+	margin: 0 0 1.25rem;
+	font-size: 1.1rem;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	color: #f0f8ff;
+	text-transform: uppercase;
+	text-align: center;
+	border-bottom: 1px solid rgba(74, 159, 232, 0.15);
+	padding-bottom: 0.75rem;
+	text-shadow: 0 0 10px rgba(74, 159, 232, 0.4);
+}
+
+.control-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	gap: 1.25rem;
+}
+
+.control-card {
+	background: rgba(10, 22, 38, 0.4);
+	border: 1px solid rgba(255, 255, 255, 0.04);
+	border-radius: 10px;
+	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+
+.control-label {
+	font-size: 0.75rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	color: rgba(200, 220, 240, 0.65);
+	letter-spacing: 0.08em;
+	border-left: 2px solid #4a9fe8;
+	padding-left: 0.5rem;
+}
+
+.btn-group {
+	display: flex;
+	gap: 0.4rem;
+	flex-wrap: wrap;
+}
+
+.control-btn {
+	flex: 1;
+	min-width: 60px;
+	background: rgba(74, 159, 232, 0.08);
+	border: 1px solid rgba(74, 159, 232, 0.2);
+	color: #d2e4f5;
+	padding: 0.5rem 0.6rem;
+	font-size: 0.8rem;
+	font-weight: 600;
+	border-radius: 6px;
+	cursor: pointer;
+	transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.control-btn:hover {
+	background: rgba(74, 159, 232, 0.18);
+	border-color: rgba(74, 159, 232, 0.4);
+	transform: translateY(-1px);
+	color: #ffffff;
+}
+
+.control-btn.active {
+	background: linear-gradient(135deg, #4a9fe8 0%, #2b7ebf 100%);
+	border-color: #4a9fe8;
+	color: #ffffff;
+	box-shadow: 0 4px 15px rgba(74, 159, 232, 0.35);
+}
+
+.toggle-group {
+	display: flex;
+	gap: 0.5rem;
+}
+
+.toggle-btn {
+	flex: 1;
+	background: rgba(46, 204, 113, 0.08);
+	border: 1px solid rgba(46, 204, 113, 0.25);
+	color: #2ecc71;
+	padding: 0.55rem 0.6rem;
+	font-size: 0.8rem;
+	font-weight: 700;
+	border-radius: 6px;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.35rem;
+}
+
+.toggle-btn:hover {
+	background: rgba(46, 204, 113, 0.18);
+	transform: translateY(-1px);
+	box-shadow: 0 4px 10px rgba(46, 204, 113, 0.15);
+}
+
+.toggle-btn.muted {
+	background: rgba(231, 76, 60, 0.08);
+	border-color: rgba(231, 76, 60, 0.25);
+	color: #e74c3c;
+}
+
+.toggle-btn.muted:hover {
+	background: rgba(231, 76, 60, 0.18);
+	box-shadow: 0 4px 10px rgba(231, 76, 60, 0.15);
+}
+
+/* Full screen: scene only — controls stay outside and hidden */
+.scene-fullscreen-exit {
+	position: absolute;
+	top: max(0.5rem, env(safe-area-inset-top));
+	right: max(0.5rem, env(safe-area-inset-right));
+	z-index: 20;
+	width: 48px;
+	height: 48px;
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	border-radius: 50%;
+	background: rgba(13, 33, 55, 0.85);
+	color: #fff;
+	font-size: 1.75rem;
+	line-height: 1;
+	cursor: pointer;
+	touch-action: manipulation;
+	transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.scene-fullscreen-exit[hidden] {
+	display: none;
+}
+
+.scene-fullscreen-exit:hover {
+	background: rgba(74, 159, 232, 0.5);
+}
+
+.scene-viewport:fullscreen,
+.scene-viewport.is-pseudo-fullscreen {
+	container-type: size;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	max-width: none;
+	margin: 0;
+	aspect-ratio: unset;
+	border-radius: 0;
+	overflow: hidden;
+	cursor: default;
+	background: linear-gradient(180deg, #0d2137 0%, #1a3d5c 50%, #0d2137 100%);
+	box-shadow: none;
+}
+
+.scene-viewport.is-pseudo-fullscreen {
+	position: fixed;
+	inset: 0;
+	z-index: 10000;
+}
+
+.scene-viewport:fullscreen .field,
+.scene-viewport.is-pseudo-fullscreen .field {
+	position: relative;
+	left: auto;
+	top: auto;
+	transform: scale(min(calc(100cqw / 1000), calc(100cqh / 500)));
+	transform-origin: center center;
+}
+
+body.scene-fullscreen-active {
+	overflow: hidden;
+}
+
+body.scene-fullscreen-active .control-panel,
+body.scene-fullscreen-active .page-wrap > header,
+body.scene-fullscreen-active .page-wrap > footer,
+body.scene-fullscreen-active .site-header {
+	visibility: hidden;
+	pointer-events: none;
+}
+
+/* ==========================================================================
+   RESPONSIVE — phones, tablets, desktop
+   ========================================================================== */
+
+@media (max-width: 900px) {
+	.control-grid {
+		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+		gap: 1rem;
+	}
+}
+
+@media (max-width: 640px) {
+	.page-wrap header {
+		margin-bottom: 0.75rem;
+	}
+
+	.control-panel {
+		margin-top: 1.25rem;
+		padding: 1rem;
+		border-radius: 12px;
+	}
+
+	.panel-title {
+		font-size: 1rem;
+		margin-bottom: 1rem;
+	}
+
+	.control-grid {
+		grid-template-columns: 1fr;
+		gap: 0.85rem;
+	}
+
+	.control-card {
+		padding: 0.85rem;
+	}
+
+	.btn-group {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 0.45rem;
+	}
+
+	.control-btn {
+		flex: none;
+		min-width: 0;
+		width: 100%;
+		font-size: clamp(0.72rem, 3.2vw, 0.82rem);
+		padding: 0.65rem 0.45rem;
+		min-height: 44px;
+	}
+
+	.toggle-group {
+		flex-direction: column;
+	}
+
+	.toggle-btn {
+		min-height: 48px;
+		font-size: clamp(0.78rem, 3.5vw, 0.88rem);
+	}
+}
+
+@media (max-width: 380px) {
+	.text-color {
+		letter-spacing: 0.06em;
+	}
+
+	.btn-group {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+	.control-btn,
+	.toggle-btn {
+		min-height: 42px;
+	}
+}
+
+@media (hover: none) and (pointer: coarse) {
+	.control-btn,
+	.toggle-btn,
+	.fence-gate {
+		touch-action: manipulation;
+	}
+
+	.control-btn:hover,
+	.toggle-btn:hover {
+		transform: none;
+	}
+
+	.control-btn:active,
+	.toggle-btn:active {
+		transform: scale(0.98);
+	}
+}
+
+/* ==========================================================================
+   DYNAMIC FENCE & GATE
+   ========================================================================== */
+
+#extended-fence {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	z-index: 4;
+}
+
+#extended-fence .fence-gate {
+	pointer-events: auto;
+}
+
+/* Динамический забор */
+.fence-post-dyn {
+	width: 18px;
+	height: 50px;
+	background: var(--fence-bg) !important;
+	position: absolute;
+	bottom: 0px;
+	z-index: 4;
+}
+
+.fence-tip-dyn {
+	width: 0;
+	height: 0;
+	border-bottom: 18px solid var(--fence-bg);
+	border-left: 9px solid transparent;
+	border-right: 9px solid transparent;
+	position: absolute;
+	bottom: 50px;
+	z-index: 4;
+}
+
+.fence-nail-dyn {
+	width: 3px;
+	height: 3px;
+	border-radius: 100%;
+	background: gold;
+	position: absolute;
+	z-index: 5;
+}
+
+/* Калитка */
+.fence-gate {
+	position: absolute;
+	bottom: 0;
+	width: 30px;
+	height: 68px;
+	z-index: 6;
+	cursor: pointer;
+}
+
+.fence-gate-frame,
+.fence-gate-door-post {
+	background: var(--fence-bg) !important;
+}
+
+.fence-gate-frame {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 5px;
+	height: 52px;
+	box-shadow: 2px 0 0 rgba(0, 0, 0, 0.15);
+}
+
+.fence-gate-door {
+	position: absolute;
+	bottom: 0;
+	left: 8px;
+	transform-origin: bottom left;
+	transition: transform 0.5s cubic-bezier(0.34, 1.2, 0.64, 1);
+}
+
+.fence-gate.is-open .fence-gate-door {
+	transform: rotate(-82deg);
+	animation: none !important;
+}
+
+.fence-gate-door-post {
+	width: 18px;
+	height: 50px;
+}
+
+.fence-gate-door-tip {
+	width: 0;
+	height: 0;
+	position: absolute;
+	bottom: 50px;
+	left: 0;
+	border-left: 9px solid transparent;
+	border-right: 9px solid transparent;
+	border-bottom: 18px solid var(--fence-bg);
+}
+
+.fence-gate:hover .fence-gate-door-post {
+	filter: brightness(1.12);
+}
