@@ -755,26 +755,26 @@ body {
 	bottom: 11px;
 	left: 468px;
 }
-/* Возвращаем рамку как было */
-.radius {
-    z-index: 3;
-    width: 80px;
-    height: 30px;
-    border: 2px solid brown;
-    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
-    background: white;
-    position: absolute;
-    bottom: 160px;
-    left: 168px;
-    overflow: hidden; 
+.radius{
+	z-index: 3;
+	width: 80px;
+	height: 30px;
+	border: 2px solid brown;
+	border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+	background: white;
+	position: absolute;
+	bottom: 160px;
+	left: 168px;
+	overflow: hidden; /* Обрезает углы картинки кота по дуге окна */
 }
-
-/* Настраиваем кота внутри, чтобы не двигать саму рамку */
-.radius img {
-    position: absolute;
-    width: 50px;
-    top: -5px;  /* Подберите значение, чтобы кот «сел» как надо */
-    left: 15px; /* Подберите значение, чтобы кот встал по центру */
+.img{
+	z-index: 3;
+	width: 46px;
+	height: 27px;
+	background: brown;
+	position: absolute;
+	bottom: 0px;
+	left: 17px; /* Центрировано внутри 80px окна: (80 - 46)/2 = 17px */
 }
 
 .bort1{
@@ -805,8 +805,8 @@ body {
 	left: 61px; /* Центрировано: 17 + 46 - 2 = 61px */
 }
 .bird1{
-    z-index: 2;
-    width: 25px;
+	z-index: 2;
+	width: 25px;
 	height: 10px;
 	border-radius: 50%;
 	background: #0662DF;
@@ -1094,15 +1094,15 @@ body {
 .field, .block1, .window, .rama1, .rama2, .rama3, .rama4, .door, .roof, .tube1, .tube2, .sun, 
 .fence1, .fence2, .fence3, .fence4, .fence5, .fence6, .fence7, .fences1, .fences2,
 .triangle-up1, .triangle-up2, .triangle-up3, .triangle-up4, .triangle-up5, .triangle-up6, .triangle-up7,
-.cloud1, .cloud2, .cloud3, .cloud4, .birds-wrap, .pixel-cat, .radius,
+.cloud1, .cloud2, .cloud3, .cloud4, .birds-wrap, .img, .radius,
 .fence-post-dyn, .fence-tip-dyn, .fence-nail-dyn {
 	transition: background 1.5s ease-in-out, 
-	            border-color 1.5s ease-in-out, 
-	            border-bottom-color 1.5s ease-in-out, 
-	            box-shadow 1.5s ease-in-out, 
-	            filter 1.5s ease-in-out, 
-	            opacity 1.5s ease-in-out, 
-	            transform 1.5s ease-in-out;
+				border-color 1.5s ease-in-out, 
+				border-bottom-color 1.5s ease-in-out, 
+				box-shadow 1.5s ease-in-out, 
+				filter 1.5s ease-in-out, 
+				opacity 1.5s ease-in-out, 
+				transform 1.5s ease-in-out;
 }
 
 /* ПРИМЕНЕНИЕ ПЕРЕМЕННЫХ К ЭЛЕМЕНТАМ */
@@ -1300,15 +1300,18 @@ body {
 	animation-duration: 0.6s !important;
 }
 
-/* Pixel cat — day / night / lit window */
-.time-night .pixel-cat,
-.time-aurora .pixel-cat {
-	filter: brightness(0.22) saturate(0.55);
+/* Кот в окне */
+.img {
+	background: transparent !important; /* Убираем сплошной коричневый фон за котом */
+	object-fit: cover;
 }
 
-.time-night.light-on .pixel-cat,
-.time-aurora.light-on .pixel-cat {
-	filter: brightness(0.92) saturate(1.08);
+.time-night .img, .time-aurora .img {
+	filter: brightness(0.2) saturate(0.6);
+}
+
+.time-night.light-on .img, .time-aurora.light-on .img {
+	filter: brightness(0.9) saturate(1.1);
 }
 
 /* Дымовой эффект */
@@ -1890,3 +1893,4 @@ body.scene-fullscreen-active .site-header {
 .fence-gate:hover .fence-gate-door-post {
 	filter: brightness(1.12);
 }
+
