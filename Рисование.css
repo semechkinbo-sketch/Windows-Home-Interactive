@@ -1902,5 +1902,5 @@ body.scene-fullscreen-active .site-header {
 .img {
     position: relative;
     top: 10px;  /* Увеличивайте это число, чтобы опустить кота ниже */
-    left: 25px;  /* Увеличивайте, чтобы подвинуть вправо */
+    left: 50px;  /* Увеличивайте, чтобы подвинуть вправо */
 }
