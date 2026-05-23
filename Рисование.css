@@ -755,20 +755,26 @@ body {
 	bottom: 11px;
 	left: 468px;
 }
+/* Возвращаем рамку как было */
 .radius {
     z-index: 3;
     width: 80px;
     height: 30px;
     border: 2px solid brown;
-    border-radius: 50% 50% 0 0 / 100% 100% 0 0; /* Форма арки */
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
     background: white;
     position: absolute;
     bottom: 160px;
     left: 168px;
-    overflow: hidden; /* Обрезает кота по форме окна */
-    display: flex;             /* Центрирует кота внутри */
-    justify-content: center;   /* по горизонтали */
-    align-items: flex-end;     /* прижимает кота к низу окна */
+    overflow: hidden; 
+}
+
+/* Настраиваем кота внутри, чтобы не двигать саму рамку */
+.radius img {
+    position: absolute;
+    width: 50px;
+    top: -5px;  /* Подберите значение, чтобы кот «сел» как надо */
+    left: 15px; /* Подберите значение, чтобы кот встал по центру */
 }
 
 
