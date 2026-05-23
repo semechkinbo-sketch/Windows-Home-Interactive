@@ -1899,9 +1899,3 @@ body.scene-fullscreen-active .site-header {
 .fence-gate:hover .fence-gate-door-post {
 	filter: brightness(1.12);
 }
-.img {
-    position: relative !important; /* Вернем relative, чтобы он оставался внутри окна */
-    top: 30px !important;         /* Начните с этого значения и меняйте его */
-    left: 10px !important;        /* Начните с малого значения */
-    width: 40px !important;       /* Задайте фиксированный размер */
-    z-index: 99 !important;       /* Чтобы он был выше всех остальных слоев */
