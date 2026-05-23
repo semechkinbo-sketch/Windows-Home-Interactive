@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+	<meta name="description" content="Interactive CSS house scene — time of day, weather, lights and sound.">
+	<title>Drawing · CSS Scene</title>
+	<link rel="stylesheet" type="text/css" href="Рисование.css">
+	<script src="Рисование.js" defer></script>
+</head>
+
+<body>
+	<div class="page-wrap">
+		<div class="site-header"></div>
+		<header>
+			<h1 class="text-color">HOME WINDOWS</h1>
+		</header>
+
+		<div class="scene-experience" id="scene-experience">
+		<div class="scene-viewport" id="scene-viewport" title="Tap the scene for full screen">
+		<div class="field" id="scene-field">
+			<!-- Atmosphere and weather layers -->
+			<div class="aurora-overlay"></div>
+			<div class="stars-container"></div>
+			<div class="weather-container"></div>
+
+			<div class="block1"></div>
+			<div class="roof"></div>
+			<div class="door"></div>
+			<div class="window"></div>
+			<div class="radius">
+				<img class="img" src="https://png.klev.club/uploads/posts/2024-05/png-klev-club-9cru-p-kot-saimon-png-15.png" alt="cat">
+				<div class="bort1"></div>
+				<div class="bort2"></div>
+				<div class="bort3"></div>
+			</div>
+
+			<div class="tube1"></div>
+			<div class="tube2"></div>
+			<div class="smog1"></div>
+			<div class="smog2"></div>
+			<div class="smog3"></div>
+			<div class="ruchka"></div>
+			<div class="rama1"></div>
+			<div class="rama2"></div>
+			<div class="rama3"></div>
+			<div class="rama4"></div>
+			<div class="sun"></div>
+			<div class="cloud1"></div>
+			<div class="cloud2"></div>
+			<div class="cloud3"></div>
+			<div class="cloud4"></div>
+			<div class="fence1"></div>
+			<div class="fence2"></div>
+			<div class="fence3"></div>
+			<div class="fence4"></div>
+			<div class="fence5"></div>
+			<div class="fence6"></div>
+			<div class="fence7"></div>
+			<div class="triangle-up1"></div>
+			<div class="triangle-up2"></div>
+			<div class="triangle-up3"></div>
+			<div class="triangle-up4"></div>
+			<div class="triangle-up5"></div>
+			<div class="triangle-up6"></div>
+			<div class="triangle-up7"></div>
+			<div class="fences1"></div>
+			<div class="fences2"></div>
+			<div id="extended-fence"></div>
+			<div class="nail1"></div>
+			<div class="nail2"></div>
+			<div class="nail3"></div>
+			<div class="nail4"></div>
+			<div class="nail5"></div>
+			<div class="nail6"></div>
+			<div class="nail7"></div>
+			<div class="nail8"></div>
+			<div class="nail9"></div>
+			<div class="nail10"></div>
+			<div class="nail11"></div>
+			<div class="nail12"></div>
+			<div class="nail13"></div>
+			<div class="nail14"></div>
+			<div class="naild1"></div>
+			<div class="naild2"></div>
+			<div class="naild3"></div>
+			<div class="naild4"></div>
+			<div class="naild5"></div>
+			<div class="naild6"></div>
+			<div class="naild7"></div>
+			<div class="naild8"></div>
+			<div class="naild9"></div>
+			<div class="naild10"></div>
+			<div class="naild11"></div>
+			<div class="naild12"></div>
+			<div class="naild13"></div>
+			<div class="naild14"></div>
+
+			<div class="birds-wrap">
+				<div class="bird1"></div>
+				<div class="bird2"></div>
+				<div class="bird3"></div>
+				<div class="bird4"></div>
+				<div class="bird5"></div>
+				<div class="bird6"></div>
+				<div class="bird7"></div>
+				<div class="bird8"></div>
+				<div class="bird9"></div>
+				<div class="bird10"></div>
+			</div>
+		</div>
+			<button type="button" class="scene-fullscreen-exit" id="scene-fullscreen-exit" hidden aria-label="Exit full screen">&times;</button>
+		</div>
+		</div>
+
+		<!-- Controls (hidden in full screen) -->
+		<div class="control-panel">
+			<h2 class="panel-title">Scene controls</h2>
+			<div class="control-grid">
+				<div class="control-card">
+					<span class="control-label">Time of day</span>
+					<div class="btn-group">
+						<button type="button" class="control-btn active" data-time="day">Day ☀️</button>
+						<button type="button" class="control-btn" data-time="sunset">Sunset 🌅</button>
+						<button type="button" class="control-btn" data-time="night">Night 🌙</button>
+						<button type="button" class="control-btn" data-time="aurora">Aurora 🌌</button>
+					</div>
+				</div>
+				<div class="control-card">
+					<span class="control-label">Weather</span>
+					<div class="btn-group">
+						<button type="button" class="control-btn active" data-weather="clear">Clear 🌤️</button>
+						<button type="button" class="control-btn" data-weather="rain">Rain 🌧️</button>
+						<button type="button" class="control-btn" data-weather="snow">Snow ❄️</button>
+						<button type="button" class="control-btn" data-weather="wind">Wind 💨</button>
+					</div>
+				</div>
+				<div class="control-card">
+					<span class="control-label">Interactive</span>
+					<div class="toggle-group">
+						<button type="button" class="toggle-btn active" id="light-btn" title="Toggle house lights">Lights: On 💡</button>
+						<button type="button" class="toggle-btn muted" id="sound-btn" title="Toggle generative ambient sound">Sound: Off 🔇</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<footer>CSS scene · learning project</footer>
+	</div>
+</body>
+</html>
