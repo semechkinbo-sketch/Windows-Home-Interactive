@@ -1899,3 +1899,8 @@ body.scene-fullscreen-active .site-header {
 .fence-gate:hover .fence-gate-door-post {
 	filter: brightness(1.12);
 }
+.img {
+    width: 60px;       /* Установите ширину, которая подходит под ваше окно */
+    height: auto;      /* Высота подстроится автоматически, сохраняя пропорции */
+    display: block;    /* Убирает лишние отступы */
+}
