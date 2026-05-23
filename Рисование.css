@@ -1900,7 +1900,8 @@ body.scene-fullscreen-active .site-header {
 	filter: brightness(1.12);
 }
 .img {
-    position: relative;
-    top: 10px;  /* Увеличивайте это число, чтобы опустить кота ниже */
-    left: 50px;  /* Увеличивайте, чтобы подвинуть вправо */
+    position: absolute !important;
+    top: 30px !important;  /* Увеличьте это значение, чтобы опустить кота */
+    left: 45px !important; /* Увеличьте это, чтобы подвинуть правее */
+    z-index: 10;           /* Чтобы кот был поверх других элементов */
 }
