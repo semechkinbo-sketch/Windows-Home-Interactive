@@ -1900,7 +1900,7 @@ body.scene-fullscreen-active .site-header {
 	filter: brightness(1.12);
 }
 .img {
-    width: 40px;      /* Подберите размер, чтобы он выглядел гармонично */
-    display: block;
-    margin: 5px auto; /* 5px отступ сверху, auto центрирует по горизонтали */
+    position: relative;
+    top: 10px;  /* Увеличивайте это число, чтобы опустить кота ниже */
+    left: 5px;  /* Увеличивайте, чтобы подвинуть вправо */
 }
