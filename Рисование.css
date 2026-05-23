@@ -1900,7 +1900,7 @@ body.scene-fullscreen-active .site-header {
 	filter: brightness(1.12);
 }
 .img {
-    width: 60px;       /* Установите ширину, которая подходит под ваше окно */
-    height: auto;      /* Высота подстроится автоматически, сохраняя пропорции */
-    display: block;    /* Убирает лишние отступы */
+    width: 40px;      /* Подберите размер, чтобы он выглядел гармонично */
+    display: block;
+    margin: 5px auto; /* 5px отступ сверху, auto центрирует по горизонтали */
 }
