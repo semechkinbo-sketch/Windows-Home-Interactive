@@ -755,17 +755,20 @@ body {
 	bottom: 11px;
 	left: 468px;
 }
-.radius{
-	z-index: 3;
-	width: 80px;
-	height: 30px;
-	border: 2px solid brown;
-	border-radius: 50% 50% 0 0 / 100% 100% 0 0;
-	background: white;
-	position: absolute;
-	bottom: 160px;
-	left: 168px;
-	overflow: hidden; /* Обрезает углы картинки кота по дуге окна */
+.radius {
+    z-index: 3;
+    width: 80px;
+    height: 30px;
+    border: 2px solid brown;
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0; /* Форма арки */
+    background: white;
+    position: absolute;
+    bottom: 160px;
+    left: 168px;
+    overflow: hidden; /* Обрезает кота по форме окна */
+    display: flex;             /* Центрирует кота внутри */
+    justify-content: center;   /* по горизонтали */
+    align-items: flex-end;     /* прижимает кота к низу окна */
 }
 
 
